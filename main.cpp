@@ -17,7 +17,6 @@
 #include <cmath>
 #include <string>
 
-
 //dla sdla
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
@@ -36,19 +35,15 @@ const int WYSOKOSC = 500;
 //podstawowa konf SDLa i zmiennych globalnych
 bool SDL_Konf();
 bool SDL_Czyszczenie();
-
-
 //koniec SDL
 
-
-using namespace std;
+const double PI = (22/7);
 
 int serial_port;
 struct termios tty;
 
 void konfiguracja();
 void akcja();
-
 double Radiany();
 
 unsigned char read_buf [6]{};
@@ -56,8 +51,8 @@ unsigned char write_flag[6]{'0','0','0','0','0','0'};
 int num_bytes_read;
 
 //dystansowe sprawy
-string dystans_s = "000";
-string kat_s = "000";
+std::string dystans_s = "000";
+std::string kat_s = "000";
 
 int dystans_i = 0;
 int kat_i = 0;
@@ -67,8 +62,10 @@ int pos_y = 0;
 float sin_r = 0.0000;
 float cos_r = 0.0000;
 
-const double PI = (22/7);
 
+
+
+using namespace std;
 
 int main()
 {
@@ -260,8 +257,8 @@ void akcja()
             kat_i = atoi(kat_s.c_str());
 
             //zrobienie katow
-            pos_x = (cos( Radiany() ) * dystans_i) * 2;
-            pos_y = (sin( Radiany() ) * dystans_i) * 2;
+            pos_x = (cos( Radiany() ) * dystans_i) * 6;
+            pos_y = (sin( Radiany() ) * dystans_i) * 6;
 
             //resety itd
             if(kat_i == 0)
