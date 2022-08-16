@@ -19,10 +19,9 @@ short int dystans;
 
 //zmiene dotyczace transmisji
 int dlugosc_stringu[2]{};
-unsigned char znak[6]{'0','0','0','0','0','0'};
+char znak[6]{'0','0','0','0','0','0'};
 String napis[2];
 int roznica = 0;
-int incomingByte;
 
 void setup() 
 {
@@ -113,12 +112,8 @@ void loop()
   }
 
   //wysłanie ramki gdy dostanie takie info że trzeba
-  if(Serial.available()>0)
+  if(Serial.available())
   {
-    //incomingByte = Serial.read();
     Serial.write(znak,6);
-    //Serial.println();
-    serwo.write(kat);
   }
-
 }
